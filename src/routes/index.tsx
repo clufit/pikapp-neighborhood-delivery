@@ -39,7 +39,7 @@ const faqs = [
 ];
 
 function SectionTag({ children }: { children: React.ReactNode }) {
-  return <span className="inline-flex items-center gap-2 rounded-full border border-primary/30 bg-primary/10 px-3 py-1 text-xs font-medium uppercase tracking-[0.15em] text-primary"><span className="h-1.5 w-1.5 rounded-full bg-primary" />{children}</span>;
+  return <span className="inline-flex w-fit self-start items-center gap-2 rounded-full border border-primary/30 bg-primary/10 px-3 py-1 text-xs font-medium uppercase tracking-[0.15em] text-primary"><span className="h-1.5 w-1.5 rounded-full bg-primary" />{children}</span>;
 }
 
 function StoreButtons() {
