@@ -22,7 +22,7 @@ export function Steps() {
     return () => { window.removeEventListener("scroll", on); window.removeEventListener("resize", on); };
   }, []);
   const active = Math.min(3, Math.floor(progress * 4));
-  const s = steps[active];
+  const s = steps[active]!;
 
   return (
     <section id="como-funciona" ref={ref} className="relative bg-cocoa text-cream" style={{ height: "400vh" }}>
