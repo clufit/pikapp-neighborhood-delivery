@@ -28,3 +28,6 @@ use the editor.
   own key and store it in Secrets.
 - **Secrets.** Lovable manages them. Do not put secret values in the repo.
 <!-- LOVABLE:END -->
+
+- Keep the delivery hero and merchant feature showcase in separate presentation components; this isolates animation and screenshot-view state from the rest of the landing page.
+- Serve uploaded application screenshots through asset pointers and use semantic CSS tokens for the animated delivery scene so media and brand styling remain consistent.

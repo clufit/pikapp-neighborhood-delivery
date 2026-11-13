@@ -1,11 +1,12 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { useState } from "react";
-import { ArrowRight, ArrowUpRight, Percent, Zap, HeartHandshake, Apple, Play } from "lucide-react";
+import { ArrowUpRight, Apple, Play } from "lucide-react";
 import { Navbar } from "@/components/site/Navbar";
+import { Hero } from "@/components/site/Hero";
+import { MerchantFeatures } from "@/components/site/MerchantFeatures";
 import { Steps } from "@/components/site/Steps";
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
 import logo from "@/assets/pikapp_logo.png.asset.json";
-import hero from "@/assets/hero-rider.jpg";
 import gastro from "@/assets/rubro-gastro.jpg";
 import farmacia from "@/assets/rubro-farmacia.jpg";
 import almacen from "@/assets/rubro-almacen.jpg";
@@ -13,9 +14,9 @@ import almacen from "@/assets/rubro-almacen.jpg";
 export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
-      { title: "Pikapp — Repartí sin regalarle tu negocio a nadie" },
+      { title: "Pikapp — Vos mandas tu delivery" },
       { name: "description", content: "Delivery para gastronomía, farmacias y almacenes sin comisiones abusivas. Pagá con Mercado Pago." },
-      { property: "og:title", content: "Pikapp — Repartí sin regalarle tu negocio a nadie" },
+      { property: "og:title", content: "Pikapp — Vos mandas tu delivery" },
       { property: "og:description", content: "Delivery sin comisiones abusivas para comercios de tu ciudad." },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary_large_image" },
@@ -61,35 +62,8 @@ function Index() {
     <div className="overflow-x-clip">
       <Navbar />
 
-      {/* HERO */}
-      <section id="inicio" className="relative min-h-screen overflow-hidden bg-cocoa text-cream">
-        <img src={hero} alt="Repartidor de Pikapp en moto" width={1280} height={1280} className="absolute inset-0 h-full w-full object-cover opacity-55" />
-        <div className="absolute inset-0 bg-gradient-to-r from-cocoa via-cocoa/80 to-cocoa/20" />
-        <div className="absolute inset-x-0 bottom-0 h-40 bg-gradient-to-t from-cocoa to-transparent" />
-        <div className="absolute -left-32 top-1/4 h-96 w-96 rounded-full bg-primary/40 blur-[120px] animate-blob" />
-        <div className="relative mx-auto flex min-h-screen max-w-7xl flex-col justify-center px-6 pb-20 pt-32">
-          <SectionTag>Delivery justo para tu ciudad</SectionTag>
-          <h1 className="mt-6 max-w-4xl text-5xl leading-[0.98] md:text-7xl lg:text-8xl">
-            Repartí sin regalarle tu negocio <span className="text-gradient">a nadie.</span>
-          </h1>
-          <p className="mt-6 max-w-xl text-lg text-cream/75 md:text-xl">
-            Sin comisiones extras, sin letra chica y sin intermediarios que se queden con tu margen. Pikapp conecta tu comercio con tu barrio y lo que vendés, es tuyo.
-          </p>
-          <div className="mt-10 flex flex-wrap gap-4">
-            <a href="#contacto" className="group inline-flex items-center gap-2 rounded-full bg-gradient-orange px-7 py-4 font-bold text-primary-foreground shadow-glow transition hover:scale-[1.03]">Sumá tu comercio <ArrowRight className="h-4 w-4 transition group-hover:translate-x-1" /></a>
-            <a href="#como-funciona" className="glass inline-flex items-center gap-2 rounded-full px-7 py-4 font-medium text-cream transition hover:bg-cream/15">Cómo funciona</a>
-          </div>
-          <div className="mt-16 grid max-w-2xl grid-cols-3 gap-3">
-            {[{ Icon: Percent, k: "0%", v: "comisiones extra" }, { Icon: Zap, k: "48hs", v: "para estar online" }, { Icon: HeartHandshake, k: "+550", v: "comercios" }].map(({ Icon, k, v }) => (
-              <div key={v} className="glass rounded-2xl p-4">
-                <Icon className="h-5 w-5 text-primary" />
-                <p className="mt-3 text-2xl font-bold md:text-3xl">{k}</p>
-                <p className="text-xs text-cream/60 md:text-sm">{v}</p>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
+      <Hero />
+      <MerchantFeatures />
 
       {/* RUBROS */}
       <section id="rubros" className="relative mx-auto max-w-7xl px-6 py-24 md:py-32">

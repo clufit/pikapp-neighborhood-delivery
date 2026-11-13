@@ -80,7 +80,7 @@
     font-weight: 400;
     -webkit-font-smoothing: antialiased;
   }
-  h1, h2, h3, h4 { font-weight: 700; letter-spacing: -0.03em; }
+  h1, h2, h3, h4 { font-weight: 700; letter-spacing: 0; }
 }
 
 @utility glass {
@@ -112,3 +112,57 @@
 @utility animate-marquee { animation: marquee 40s linear infinite; }
 @utility animate-float { animation: float 6s ease-in-out infinite; }
 @utility animate-blob { animation: blob 12s ease-in-out infinite; }
+
+:root {
+  --hero-grid-line: color-mix(in oklab, var(--cream) 3%, transparent);
+  --hero-frame-line: color-mix(in oklab, var(--primary) 24%, transparent);
+  --delivery-surface: color-mix(in oklab, var(--cocoa-soft) 92%, transparent);
+  --delivery-shadow: 0 12px 35px color-mix(in oklab, var(--cocoa) 70%, transparent);
+  --hero-fade: linear-gradient(to bottom, transparent, color-mix(in oklab, var(--primary) 13%, var(--cocoa)) 50%, var(--cocoa));
+  --merchant-shadow: 0 25px 80px color-mix(in oklab, var(--cocoa) 70%, transparent);
+}
+.delivery-hero { min-height: min(740px, calc(100svh - 64px)); }
+.delivery-grid {
+  background-image: linear-gradient(var(--hero-grid-line) 1px, transparent 1px), linear-gradient(90deg, var(--hero-grid-line) 1px, transparent 1px);
+  background-size: 64px 64px;
+  mask-image: linear-gradient(transparent, var(--cocoa) 30%, transparent);
+}
+.hero-title-frame { border: 1px solid var(--hero-frame-line); }
+.frame-corner { position: absolute; width: 5px; height: 5px; background: var(--primary); }
+.corner-tl { top: -3px; left: -3px; } .corner-tr { top: -3px; right: -3px; }
+.corner-bl { bottom: -3px; left: -3px; } .corner-br { bottom: -3px; right: -3px; }
+.delivery-object { position: absolute; display: grid; place-items: center; width: 70px; height: 70px; border: 1px solid var(--hero-frame-line); border-radius: 18px; background: var(--delivery-surface); color: var(--primary); box-shadow: var(--delivery-shadow); animation: delivery-drift 8s ease-in-out infinite; }
+.delivery-object svg { width: 34px; height: 34px; stroke-width: 1.4; }
+.delivery-object span { position: absolute; top: calc(100% - 6px); border: 1px solid var(--hero-frame-line); border-radius: 999px; background: var(--cocoa-soft); padding: 5px 12px; white-space: nowrap; font-size: 10px; color: var(--cream); }
+.delivery-rocket { left: 6%; top: 29%; rotate: -14deg; }
+.delivery-package { right: 6%; top: 47%; rotate: 14deg; animation-delay: -3s; }
+.delivery-bike { left: 17%; top: 76%; width: 54px; height: 54px; rotate: -8deg; opacity: .65; animation-delay: -5s; }
+.delivery-pin { right: 21%; top: 18%; width: 46px; height: 46px; rotate: 12deg; opacity: .45; animation-delay: -2s; }
+.delivery-truck { right: 23%; top: 79%; width: 54px; height: 54px; rotate: 8deg; opacity: .6; animation-delay: -6s; }
+.hero-bottom-fade { background: var(--hero-fade); }
+.merchant-showcase { padding: 0 0 30px 110px; }
+.merchant-screen { box-shadow: var(--merchant-shadow); transform: perspective(1800px) rotateY(-5deg) rotateX(3deg); transform-origin: center; }
+.merchant-screenshot { aspect-ratio: 2.2; object-fit: cover; object-position: top left; }
+.merchant-caption { background: var(--delivery-surface); box-shadow: var(--merchant-shadow); }
+@keyframes delivery-drift { 0%, 100% { transform: translateY(0) rotate(-3deg); } 50% { transform: translateY(-18px) rotate(4deg); } }
+@media (max-width: 767px) {
+  .delivery-hero { min-height: 0; }
+  .hero-title-frame { border-color: transparent; }
+  .frame-corner { display: none; }
+  .delivery-object { width: 42px; height: 42px; border-radius: 12px; opacity: .6; }
+  .delivery-object svg { width: 25px; height: 25px; }
+  .delivery-object span { display: none; }
+  .delivery-rocket { left: 8%; top: 105px; }
+  .delivery-package { right: 7%; top: 108px; }
+  .delivery-pin { display: none; }
+  .delivery-bike { left: 6%; top: auto; bottom: 42px; }
+  .delivery-truck { right: 8%; top: auto; bottom: 40px; }
+  .merchant-showcase { padding: 0; }
+  .merchant-screen { transform: none; }
+  .merchant-screenshot { aspect-ratio: 1.25; width: 176%; max-width: none; object-fit: cover; }
+  .merchant-caption { margin-top: 20px; max-width: none; }
+}
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  .delivery-object, .animate-blob, .animate-float, .animate-marquee { animation: none; }
+}
