@@ -12,12 +12,12 @@ export function Hero() {
         <div className="delivery-object delivery-pin"><MapPin /></div>
         <div className="delivery-object delivery-truck"><Truck /></div>
       </div>
-      <div className="relative z-10 mx-auto flex max-w-7xl flex-col items-center px-6 pb-28 pt-36 text-center md:pb-32 md:pt-44">
+      <div className="relative z-10 mx-auto flex max-w-7xl flex-col items-center px-6 pb-28 pt-36 text-center md:pb-28 md:pt-32">
         <p className="mb-8 text-xs font-medium uppercase tracking-[0.15em] text-cream/65">Tu comercio. Tu barrio. Pikapp.</p>
         <div className="hero-title-frame relative w-full max-w-4xl px-2 py-5 md:px-8 md:py-6">
           <span className="frame-corner corner-tl" aria-hidden="true" /><span className="frame-corner corner-tr" aria-hidden="true" />
           <span className="frame-corner corner-bl" aria-hidden="true" /><span className="frame-corner corner-br" aria-hidden="true" />
-          <h1 className="text-[42px] font-bold leading-[1.08] md:text-6xl lg:text-7xl">Vos mandas tu delivery,<br className="hidden md:block" /> sin regalarle tu negocio <span className="text-gradient">a nadie.</span></h1>
+          <h1 className="text-[42px] font-bold leading-[1.08] md:text-6xl">Vos mandas tu delivery,<br className="hidden md:block" /> sin regalarle tu negocio <span className="text-gradient">a nadie.</span></h1>
         </div>
         <p className="mt-7 max-w-2xl text-base leading-relaxed text-cream/70 md:text-lg">Sin comisiones extras, sin letra chica y sin intermediarios que se queden con tu margen. Pikapp conecta tu comercio con tu barrio: lo que vendés, es tuyo.</p>
         <div className="mt-9 flex flex-wrap justify-center gap-3">

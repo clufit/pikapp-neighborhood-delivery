@@ -12,6 +12,7 @@ const views = [
 export function MerchantFeatures() {
   const [active, setActive] = useState(0);
   const current = views[active] ?? views[0];
+  if (!current) return null;
   return (
     <section id="funcionalidades" className="merchant-section relative overflow-hidden bg-cocoa text-cream">
       <div className="mx-auto max-w-7xl px-6 pb-20 pt-8 md:pb-28 md:pt-14">
