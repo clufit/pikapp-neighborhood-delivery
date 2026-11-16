@@ -5,6 +5,8 @@ import { Navbar } from "@/components/site/Navbar";
 import { Hero } from "@/components/site/Hero";
 import { MerchantFeatures } from "@/components/site/MerchantFeatures";
 import { Steps } from "@/components/site/Steps";
+import { ProductShowcase } from "@/components/site/ProductShowcase";
+import { Button } from "@/components/ui/button";
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
 import logo from "@/assets/pikapp_logo.png.asset.json";
 import gastro from "@/assets/rubro-gastro.jpg";
@@ -14,9 +16,9 @@ import almacen from "@/assets/rubro-almacen.jpg";
 export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
-      { title: "Pikapp — Vos mandas tu delivery" },
+       { title: "Pikapp — Mandá tu delivery" },
       { name: "description", content: "Delivery para gastronomía, farmacias y almacenes sin comisiones abusivas. Pagá con Mercado Pago." },
-      { property: "og:title", content: "Pikapp — Vos mandas tu delivery" },
+       { property: "og:title", content: "Pikapp — Mandá tu delivery" },
       { property: "og:description", content: "Delivery sin comisiones abusivas para comercios de tu ciudad." },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary_large_image" },
@@ -28,9 +30,9 @@ export const Route = createFileRoute("/")({
 const rubros = [
   { img: gastro, title: "Gastronomía", text: "Restaurantes, hamburgueserías, cafés y dark kitchens.", tag: "+320 locales" },
   { img: farmacia, title: "Farmacias", text: "Medicamentos, perfumería y cuidado personal en minutos.", tag: "+80 locales" },
-  { img: almacen, title: "Almacenes", text: "El almacén del barrio, ahora a un toque de distancia.", tag: "+150 locales" },
+  { img: almacen, title: "Almacenes", text: "Tu almacén de siempre, ahora a un toque de distancia.", tag: "+150 locales" },
 ];
-const marcas = ["Rock&Feller's", "Ruffo Coffee", "Club de la Milanesa", "Farmacia Central", "La Nueva Esquina", "Wine&Dine", "Almacén Don Tito", "Burger Lab"];
+const marcas = ["Rock&Feller's", "Billy Lomito", "Gianni Cocino", "Hanks", "B de Barrio", "Groovin"];
 const faqs = [
   { q: "¿Cuánto cobra Pikapp de comisión?", a: "Trabajamos con una tarifa fija y transparente, muy por debajo de las apps tradicionales. Sin letra chica ni cargos sorpresa." },
   { q: "¿Puedo usar mis propios repartidores?", a: "Sí. Podés repartir con tu equipo, usar la red de Pikapp o habilitar retiro en el local." },
@@ -70,7 +72,7 @@ function Index() {
         <div className="flex flex-col justify-between gap-6 md:flex-row md:items-end">
           <div>
             <SectionTag>Rubros</SectionTag>
-            <h2 className="mt-5 max-w-xl text-4xl md:text-6xl">Todo lo que tu barrio necesita.</h2>
+            <h2 className="mt-5 max-w-xl text-4xl md:text-6xl">Todo lo que necesitás.</h2>
           </div>
           <p className="max-w-sm text-muted-foreground">Desde la cena del viernes hasta el remedio de último momento. Un solo lugar, comercios reales.</p>
         </div>
@@ -90,6 +92,7 @@ function Index() {
       </section>
 
       <Steps />
+      <ProductShowcase />
 
       {/* MARCAS */}
       <section className="py-20">
@@ -122,9 +125,7 @@ function Index() {
 
       {/* CONTACTO + DESCARGA */}
       <section id="contacto" className="px-4 pb-24">
-        <div className="relative mx-auto max-w-7xl overflow-hidden rounded-[2.5rem] bg-gradient-orange p-8 md:p-14">
-          <div className="absolute -right-24 -top-24 h-96 w-96 rounded-full bg-cocoa/30 blur-3xl animate-blob" />
-          <div className="absolute -bottom-32 left-1/3 h-80 w-80 rounded-full bg-cream/30 blur-3xl" />
+        <div className="relative mx-auto max-w-7xl overflow-hidden rounded-[2.5rem] bg-primary p-8 md:p-14">
           <div className="relative grid gap-12 lg:grid-cols-2">
             <div className="text-primary-foreground">
               <h2 className="text-4xl md:text-6xl">Sumá tu comercio a Pikapp.</h2>
@@ -148,7 +149,7 @@ function Index() {
                       <option>Gastronomía</option><option>Farmacia</option><option>Almacén</option><option>Otro</option>
                     </select>
                   </label>
-                  <button type="submit" className="w-full rounded-xl bg-cocoa py-4 font-bold text-cream transition hover:bg-cocoa-soft">Quiero sumarme</button>
+                  <Button type="submit" className="h-auto w-full rounded-xl bg-cocoa py-4 font-bold text-cream transition hover:bg-cocoa-soft">Quiero sumarme</Button>
                 </div>
               )}
             </form>
