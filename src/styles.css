@@ -1,12 +1,13 @@
 @import "tailwindcss" source(none);
 @source "../src";
 @import "tw-animate-css";
+@import "@fontsource/poppins/700.css";
 
 @custom-variant dark (&:is(.dark *));
 
 @theme inline {
   --font-sans: "DM Sans", ui-sans-serif, system-ui, sans-serif;
-  --font-display: "Averta", "DM Sans", ui-sans-serif, system-ui, sans-serif;
+  --font-display: "Poppins", "DM Sans", ui-sans-serif, system-ui, sans-serif;
   --radius-sm: calc(var(--radius) - 4px);
   --radius-md: calc(var(--radius) - 2px);
   --radius-lg: var(--radius);
@@ -37,10 +38,14 @@
   --color-cocoa-soft: var(--cocoa-soft);
   --color-orange-glow: var(--orange-glow);
   --color-snow: var(--snow);
+  --color-highlight: var(--highlight);
+  --color-highlight-foreground: var(--highlight-foreground);
 }
 
 :root {
-  --radius: 1rem;
+  --radius: 0.75rem;
+  --highlight: #33d7e8;
+  --highlight-foreground: var(--cocoa);
   --orange: #f77331;
   --orange-glow: oklch(0.8 0.14 60);
   --cocoa: oklch(0.2 0.03 45);            /* #200F07 */
@@ -81,15 +86,7 @@
     font-weight: 400;
     -webkit-font-smoothing: antialiased;
   }
-  h1, h2, h3, h4 { font-family: var(--font-display); font-weight: 800; letter-spacing: 0; }
-}
-
-@font-face {
-  font-family: "Averta";
-  src: local("Averta Extra Bold"), local("Averta-ExtraBold"), local("Averta ExtraBold");
-  font-weight: 800;
-  font-style: normal;
-  font-display: swap;
+  h1, h2, h3, h4 { font-family: var(--font-display); font-weight: 700; letter-spacing: 0; }
 }
 
 @utility glass {
@@ -120,11 +117,11 @@
 @utility animate-blob { animation: blob 12s ease-in-out infinite; }
 
 :root {
-  --hero-grid-line: color-mix(in oklab, var(--cream) 3%, transparent);
-  --hero-frame-line: color-mix(in oklab, var(--primary) 24%, transparent);
+  --hero-grid-line: color-mix(in oklab, var(--cocoa) 7%, transparent);
+  --hero-frame-line: color-mix(in oklab, var(--cocoa) 24%, transparent);
   --delivery-surface: color-mix(in oklab, var(--cocoa-soft) 92%, transparent);
   --delivery-shadow: 0 12px 35px color-mix(in oklab, var(--cocoa) 70%, transparent);
-  --hero-fade: linear-gradient(to bottom, transparent, var(--cocoa));
+  --hero-fade: linear-gradient(to bottom, transparent, var(--primary));
   --merchant-shadow: 0 25px 80px color-mix(in oklab, var(--cocoa) 70%, transparent);
 }
 .delivery-hero { min-height: min(740px, calc(100svh - 64px)); }
@@ -134,12 +131,12 @@
   mask-image: linear-gradient(transparent, var(--cocoa) 30%, transparent);
 }
 .hero-title-frame { border: 1px solid var(--hero-frame-line); }
-.frame-corner { position: absolute; width: 5px; height: 5px; background: var(--primary); }
+.frame-corner { position: absolute; width: 5px; height: 5px; background: var(--highlight); }
 .corner-tl { top: -3px; left: -3px; } .corner-tr { top: -3px; right: -3px; }
 .corner-bl { bottom: -3px; left: -3px; } .corner-br { bottom: -3px; right: -3px; }
-.delivery-object { position: absolute; display: grid; place-items: center; width: 70px; height: 70px; border: 1px solid var(--hero-frame-line); border-radius: 18px; background: var(--delivery-surface); color: var(--primary); box-shadow: var(--delivery-shadow); animation: delivery-drift 8s ease-in-out infinite; }
+.delivery-object { position: absolute; display: grid; place-items: center; width: 70px; height: 70px; border: 1px solid var(--hero-frame-line); border-radius: 14px; background: var(--delivery-surface); color: var(--highlight); box-shadow: var(--delivery-shadow); animation: delivery-drift 8s ease-in-out infinite; }
 .delivery-object svg { width: 34px; height: 34px; stroke-width: 1.4; }
-.delivery-object span { position: absolute; top: calc(100% - 6px); border: 1px solid var(--hero-frame-line); border-radius: 999px; background: var(--cocoa-soft); padding: 5px 12px; white-space: nowrap; font-size: 10px; color: var(--cream); }
+.delivery-object span { position: absolute; top: calc(100% - 6px); border: 1px solid var(--hero-frame-line); border-radius: var(--radius-md); background: var(--cocoa-soft); padding: 5px 12px; white-space: nowrap; font-size: 10px; color: var(--cream); }
 .delivery-rocket { left: 6%; top: 29%; rotate: -14deg; }
 .delivery-package { right: 6%; top: 47%; rotate: 14deg; animation-delay: -3s; }
 .delivery-bike { left: 17%; top: 76%; width: 54px; height: 54px; rotate: -8deg; opacity: .65; animation-delay: -5s; }

@@ -22,10 +22,10 @@ export function MerchantFeatures() {
       <div className="mx-auto max-w-7xl px-6 pb-20 pt-8 md:pb-28 md:pt-14">
         <div className="grid gap-6 md:grid-cols-2 md:gap-20">
           <div><p className="text-xs font-medium uppercase tracking-[0.15em] text-primary">Pikapp para comercios</p><h2 className="mt-4 max-w-lg text-4xl leading-[1.12] md:text-5xl">Tus propias condiciones de logística.</h2></div>
-          <div className="md:pt-7"><p className="max-w-lg text-lg leading-relaxed text-cream/70">Tu negocio no se detiene. Tené una visión clara de lo que pasa, acompañá cada venta y tomá decisiones con toda la información a mano.</p><Button asChild variant="link" className="mt-4 h-auto p-0 text-primary"><a href="#contacto">Sumá tu comercio <ArrowUpRight /></a></Button></div>
+          <div className="md:pt-7"><p className="max-w-lg text-lg leading-relaxed text-cream/70">Tu negocio no se detiene. Tené una visión clara de lo que pasa, acompañá cada venta y tomá decisiones con toda la información a mano.</p><Button asChild variant="link" className="mt-4 h-auto p-0 text-highlight"><a href="#contacto">Sumá tu comercio <ArrowUpRight /></a></Button></div>
         </div>
         <div role="tablist" aria-label="Funcionalidades de Pikapp" className="mt-10 flex flex-wrap gap-2 md:mt-12">
-          {views.map(({ id, label, Icon }, index) => <Button key={id} id={`feature-tab-${id}`} role="tab" aria-selected={active === index} aria-controls="feature-panel" variant="ghost" onClick={() => setActive(index)} className={`h-10 rounded-full px-4 hover:bg-cream/10 hover:text-cream ${active === index ? "bg-cream/10 text-cream" : "text-cream/50"}`}><Icon />{label}</Button>)}
+          {views.map(({ id, label, Icon }, index) => <Button key={id} id={`feature-tab-${id}`} role="tab" aria-selected={active === index} aria-controls="feature-panel" variant="ghost" onClick={() => setActive(index)} className={`h-10 rounded-lg px-4 hover:bg-cream/10 hover:text-cream ${active === index ? "bg-highlight/15 text-highlight" : "text-cream/65"}`}><Icon />{label}</Button>)}
         </div>
         <div id="feature-panel" role="tabpanel" aria-labelledby={`feature-tab-${current.id}`} className="merchant-showcase relative mt-8">
           <div className="merchant-screen overflow-hidden rounded-lg border border-cream/15 bg-background">

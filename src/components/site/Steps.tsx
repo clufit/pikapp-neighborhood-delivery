@@ -46,9 +46,9 @@ export function Steps() {
             </ul>
           </div>
           <div className="relative flex justify-center">
-            <div className="glass relative w-full max-w-sm rounded-[2rem] p-6 shadow-2xl">
+            <div className="glass relative w-full max-w-sm rounded-2xl p-6 shadow-2xl">
               <div className="flex items-center gap-3">
-                <span className="grid h-12 w-12 place-items-center rounded-2xl bg-primary shadow-glow"><s.Icon className="h-6 w-6 text-primary-foreground" /></span>
+                <span className="grid h-12 w-12 place-items-center rounded-xl bg-primary shadow-glow"><s.Icon className="h-6 w-6 text-primary-foreground" /></span>
                 <div>
                   <p className="font-mono text-[10px] tracking-[0.2em] text-cream/50">PASO 0{active + 1}</p>
                   <p className="font-bold">{s.title}</p>
@@ -56,7 +56,7 @@ export function Steps() {
               </div>
               <div key={active} className="mt-6 space-y-3">
                 {s.items.map((it, i) => (
-                  <div key={it} style={{ animationDelay: `${i * 90}ms` }} className={`flex items-center justify-between rounded-xl border px-4 py-3 text-sm animate-in fade-in slide-in-from-right-6 fill-mode-both duration-500 ${i === 0 ? "border-primary/60 bg-primary/15" : "border-cream/10 bg-cream/5"}`}>
+                  <div key={it} style={{ animationDelay: `${i * 90}ms` }} className={`flex items-center justify-between rounded-lg border px-4 py-3 text-sm animate-in fade-in slide-in-from-right-6 fill-mode-both duration-500 ${i === 0 ? "border-primary/60 bg-primary/15" : "border-cream/10 bg-cream/5"}`}>
                     {it}{i === 0 && <Check className="h-4 w-4 text-primary" />}
                   </div>
                 ))}
@@ -65,7 +65,7 @@ export function Steps() {
                 <span className="h-1.5 w-1.5 rounded-full bg-primary" />{s.chip.toUpperCase()}
               </div>
             </div>
-            <div className="glass absolute -bottom-6 -left-2 hidden rounded-2xl px-4 py-3 text-sm animate-float md:block">Sin comisiones extra 🧡</div>
+            <div className="glass absolute -bottom-6 -left-2 hidden rounded-xl px-4 py-3 text-sm animate-float md:block">Sin comisiones extra 🧡</div>
           </div>
         </div>
       </div>
