@@ -3,7 +3,10 @@
 - [x] Incorporar funcionalidades del comerciante antes de Rubros.
 - [x] Verificar portada y funcionalidades en computadora y celular.
 - [x] Actualizar DM Sans, textos, marcas y naranja liso.
-- [ ] Completar Averta Extra Bold: falta el archivo de fuente del usuario; DM Sans es el reemplazo provisional.
+- [ ] Reemplazar Averta por Poppins Bold.
 - [x] Ampliar funcionalidades con Catálogo, Envíos y Clientes.
 - [x] Sumar productos protagonistas debajo del paso a paso.
 - [x] Verificar cambios en computadora y celular.
+- [ ] Invertir fondos de portada y productos e incorporar celeste.
+- [ ] Asegurar lectura del menú sobre fondos claros y reducir bordes.
+- [ ] Verificar esta actualización en computadora y celular.
