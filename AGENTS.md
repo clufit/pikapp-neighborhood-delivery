@@ -31,3 +31,5 @@ use the editor.
 
 - Keep the delivery hero and merchant feature showcase in separate presentation components; this isolates animation and screenshot-view state from the rest of the landing page.
 - Serve uploaded application screenshots through asset pointers and use semantic CSS tokens for the animated delivery scene so media and brand styling remain consistent.
+- Keep the product showcase in a dedicated presentation component and use a cropped asset pointer from the provided reference; this preserves the actual product screen without embedding reference copy.
+- Load licensed display fonts only from supplied files or installed local fonts, with a declared web-font fallback; this avoids unlicensed font downloads and broken font requests.
