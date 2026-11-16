@@ -2,7 +2,7 @@ import { useEffect, useRef, useState } from "react";
 import { Store, ShoppingCart, Bike, CreditCard, Check } from "lucide-react";
 
 const steps = [
-  { Icon: Store, title: "Seleccioná tu local", text: "Explorá comercios de tu barrio: restaurantes, farmacias y almacenes cerca tuyo.", chip: "Rock&Feller's · 4.8 ★", items: ["Rock&Feller's Oroño", "Club de la Milanesa", "Farmacia Central"] },
+  { Icon: Store, title: "Seleccioná tu local", text: "Explorá comercios cerca tuyo: restaurantes, farmacias y almacenes.", chip: "Rock&Feller's · 4.8 ★", items: ["Rock&Feller's", "Billy Lomito", "Hanks"] },
   { Icon: ShoppingCart, title: "Sumá productos al carrito", text: "Armá tu pedido en segundos. Precios reales del local, sin recargos escondidos.", chip: "3 productos · $27.300", items: ["Ojo de bife Rock ×1", "Grilled chicken ×1", "Cheesecake ×1"] },
   { Icon: Bike, title: "Elegí delivery o retiro", text: "Que te lo lleven a casa o pasá a buscarlo. Vos decidís cómo y cuándo.", chip: "Llega en 15–25 min", items: ["Delivery a domicilio", "Retiro en el local", "Programar pedido"] },
   { Icon: CreditCard, title: "Pagá con Mercado Pago", text: "Pago seguro, rápido y con la app que ya usás todos los días.", chip: "Pago aprobado", items: ["Mercado Pago", "Dinero en cuenta", "Tarjeta guardada"] },
@@ -22,12 +22,12 @@ export function Steps() {
     return () => { window.removeEventListener("scroll", on); window.removeEventListener("resize", on); };
   }, []);
   const active = Math.min(3, Math.floor(progress * 4));
-  const s = steps[active]!;
+  const s = steps[active];
+  if (!s) return null;
 
   return (
     <section id="como-funciona" ref={ref} className="relative bg-cocoa text-cream" style={{ height: "400vh" }}>
       <div className="sticky top-0 flex h-screen items-center overflow-hidden">
-        <div className="absolute left-1/2 top-1/3 h-[500px] w-[500px] -translate-x-1/2 rounded-full bg-primary/20 blur-[120px]" />
         <div className="relative mx-auto grid w-full max-w-7xl gap-10 px-6 lg:grid-cols-2 lg:gap-16">
           <div>
             <div className="flex items-center gap-4 font-mono text-xs tracking-[0.2em] text-cream/50">
@@ -48,7 +48,7 @@ export function Steps() {
           <div className="relative flex justify-center">
             <div className="glass relative w-full max-w-sm rounded-[2rem] p-6 shadow-2xl">
               <div className="flex items-center gap-3">
-                <span className="grid h-12 w-12 place-items-center rounded-2xl bg-gradient-orange shadow-glow"><s.Icon className="h-6 w-6 text-primary-foreground" /></span>
+                <span className="grid h-12 w-12 place-items-center rounded-2xl bg-primary shadow-glow"><s.Icon className="h-6 w-6 text-primary-foreground" /></span>
                 <div>
                   <p className="font-mono text-[10px] tracking-[0.2em] text-cream/50">PASO 0{active + 1}</p>
                   <p className="font-bold">{s.title}</p>
